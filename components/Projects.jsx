@@ -17,6 +17,11 @@ const Projects = () => {
                 backgroundImg={trollimage} 
                 projectUrl='/troll'
                />
+                {/* <ProjectItem 
+                title='Troll Generator' 
+                backgroundImg={trollimage} 
+                projectUrl='/troll'
+               /> */}
 
             </div>
         </div>

@@ -29,17 +29,23 @@ function Contact() {
             <p className='uppercase pt-8'>Connect With Me</p>
             <div className='flex items-center justify-between py-4'>
                 <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
-                    <FaLinkedinIn />
+                    <Link href='https://www.linkedin.com/in/adam-bergstrom-38a744260/'>
+                        <FaLinkedinIn />
+                    </Link>
                 </div>
                 <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
-                    <FaGithub />
+                    <Link href='https://github.com/AdamBergstrom138'>
+                        <FaGithub />
+                    </Link>
                 </div>
                 <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
-                    <AiOutlineMail />
+                    <Link href='/#contact'>
+                        <AiOutlineMail />
+                    </Link>
                 </div>
-                <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
+                {/* <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
                     <BsFillPersonLinesFill />
-                </div>
+                </div> */}
             </div>
         </div>
     </div>
