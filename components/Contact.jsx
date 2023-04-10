@@ -8,6 +8,14 @@ import Link from 'next/link';
 
 
 function Contact() {
+
+    const [fullname, setFullname] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("");
+    const [email, setEmail] = useState("");
+    const [subject, setSubject] = useState("");
+    const [message, setMessage] = useState("");
+
+
   return (
     <div id='contact' className='w-full lg:h-screen'>
         <div className='max-w-[1240px] m-auto px-2 py-16 w-full'>
@@ -56,34 +64,86 @@ function Contact() {
 <div className='col-span-3 w-full h-auto shadow-xl shadow-gray-400 rounded-xl lg:p-4'>
     <div className='p-4'>
 
-        <form>
+        <form onSubmit={handleSubmit}>
             <div className='grid md:grid-cols-2 gap-4 w-full py-2'>
                 <div className='flex flex-col'>
                     <label className='uppercase text-sm py-2'>Name</label>
-                    <input className='border-2 rounded-lg p-3 flex border-gray-300' type="text"/>
+                    <input 
+                        className='border-2 rounded-lg p-3 flex border-gray-300'
+                        type="text"
+                        value={fullname}
+                        onChange={(e) => {
+                            setFullname(e.target.value);
+                        }}
+                        name="fullname"
+                    />
                 </div>
+
                 <div className='flex flex-col'>
                     <label className='uppercase text-sm py-2'>Phone Number</label>
-                    <input className='border-2 rounded-lg p-3 flex border-gray-300' type="text"/>
+                    <input 
+                        className='border-2 rounded-lg p-3 flex border-gray-300' 
+                        type="text"
+                        value={phoneNumber}
+                        onChange={(e) => {
+                            setPhoneNumber(e.target.value);
+                        }}
+                        name="phoneNumber"
+                    />
                 </div>
             </div>
+
             <div className='flex flex-col py-2'>
                 <label className='uppercase text-sm py-2'>Email</label>
-                <input className='border-2 rounded-lg p-3 flex border-gray-300' type="email"/>
+                <input 
+                    className='border-2 rounded-lg p-3 flex border-gray-300' 
+                    type="email"
+                    value={email}
+                    onChange={(e) => {
+                        setEmail(e.target.value);
+                    }}
+                    name="email"
+                />
             </div>
+
             <div className='flex flex-col py-2'>
                 <label className='uppercase text-sm py-2'>Subject</label>
-                <input className='border-2 rounded-lg p-3 flex border-gray-300' type="text"/>
+                <input 
+                    className='border-2 rounded-lg p-3 flex border-gray-300' 
+                    type="text"
+                    value={subject}
+                    onChange={(e) => {
+                        setEmail(e.target.value);
+                    }}
+                    name="subject"
+                />
             </div>
+
             <div className='flex flex-col py-2'>
                 <label className='uppercase text-sm py-2'>Message</label>
-                <textarea className='border-2 rounded-lg p-3 border-gray-300' rows='10'></textarea>
+                <textarea 
+                    className='border-2 rounded-lg p-3 border-gray-300' 
+                    rows='10'
+                    value={message}
+                    onChange={(e) => {
+                        setMessage(e.target.value);
+                    }}
+                    name="message"
+                ></textarea>
             </div>
-            <button className='w-full p-4 text-gray-100 mt-4'>Send Message</button>
+
+            <button 
+                className='w-full p-4 text-gray-100 mt-4'
+                type="submit"
+            >
+                Send Message
+            </button>
+
         </form>
     </div>
 </div>
             </div>
+
             <div className='flex justify-center py-12'>
                 <Link href='/'>
                     <div className='rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300'>
