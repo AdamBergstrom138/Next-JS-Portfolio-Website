@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {FaLinkedinIn, FaGithub} from 'react-icons/fa';
 import { AiOutlineMail } from 'react-icons/ai';
 import {BsFillPersonLinesFill} from 'react-icons/bs';
@@ -15,6 +15,33 @@ function Contact() {
     const [subject, setSubject] = useState("");
     const [message, setMessage] = useState("");
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+    
+        // let isValidForm = handleValidation();
+    
+         
+          const res = await fetch("/api/sendgrid", {
+            body: JSON.stringify({
+              email: email,
+              phoneNumber: phoneNumber,
+              fullname: fullname,
+              subject: subject,
+              message: message,
+            }),
+            headers: {
+              "Content-Type": "application/json",
+            },
+            method: "POST",
+          });
+    
+          const { error } = await res.json();
+          if (error) {
+            console.log(error);
+            return;
+          }
+        console.log(fullname, phoneNumber, email, subject, message);
+      };
 
   return (
     <div id='contact' className='w-full lg:h-screen'>
@@ -113,7 +140,7 @@ function Contact() {
                     type="text"
                     value={subject}
                     onChange={(e) => {
-                        setEmail(e.target.value);
+                        setSubject(e.target.value);
                     }}
                     name="subject"
                 />
@@ -133,7 +160,8 @@ function Contact() {
             </div>
 
             <button 
-                className='w-full p-4 text-gray-100 mt-4'
+                // className='w-full p-4 text-gray-100 mt-4'
+                className='w-full p-4 text-[#5651e5] mt-4'
                 type="submit"
             >
                 Send Message

@@ -27,6 +27,8 @@ async function sendEmail(req, res) {
             <div class="container" style="margin-left: 20px;margin-right: 20px;">
             <h3>You've got a new mail from ${req.body.fullname}, their email is: ✉️${req.body.email} </h3>
             <div style="font-size: 16px;">
+            <p>Phone Number:</p>
+            <p>${req.body.phoneNumber}</p>
             <p>Message:</p>
             <p>${req.body.message}</p>
             <br>
